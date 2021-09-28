@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Vim Tutorial
+This webapp works as a simple Vim tutorial with a few tests to practice and improve your Vim skills.
+
+## Dependencies
+
+- [Code Mirror](https://uiwjs.github.io/react-codemirror/)
+- [TailwindCSS](https://tailwindcss.com/)
+
+##  Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
