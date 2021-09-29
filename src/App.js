@@ -9,12 +9,17 @@ function App() {
     const newTest = () => {
         const charactersPerLine = 30;
         const totalLines = 10;
-        const objectHorizontalLocation = Math.floor(Math.random() * (charactersPerLine - 1)) + 1;
+        const objectHorizontalLocation = Math.floor(Math.random() * charactersPerLine) + 1;
         const objectPositioned = ' '.repeat(objectHorizontalLocation - 1) + '%' + ' '.repeat(charactersPerLine - objectHorizontalLocation) + '\n';
-        const objectVerticalLocation = Math.floor(Math.random() * (totalLines - 1)) + 1;
+        const objectVerticalLocation = Math.floor(Math.random() * totalLines) + 1;
         const upperLines = (' '.repeat(charactersPerLine) + '\n').repeat(objectVerticalLocation - 1);
-        const lowerLines = ((' '.repeat(charactersPerLine) + '\n').repeat(totalLines - objectVerticalLocation)).slice(0, -1);
-        return upperLines + objectPositioned + lowerLines;
+
+        if (objectVerticalLocation == totalLines) {
+            return upperLines + objectPositioned.slice(0, -1);
+        } else {
+            const lowerLines = ((' '.repeat(charactersPerLine) + '\n').repeat(totalLines - objectVerticalLocation)).slice(0, -1);
+            return upperLines + objectPositioned + lowerLines;
+        }
     }
 
     const initialTest = newTest();
@@ -44,14 +49,15 @@ function App() {
                     options={{
                         theme: 'dracula',
                         mode: 'js',
-                        keyMap: 'vim'
+                        keyMap: 'vim',
+                        autofocus: true
                     }}
                     value={vimTest}
-                    width="400px"
-                    overflow="auto"
+                    height="100%"
+                    width="100%"
                     onChange={(editor) => {
                         if (editor.getValue().includes('%')) {
-                            console.log('value:', editor.getValue());
+                            console.log('value:', 'You can do it!');
                         } else {
                             console.log('value:', 'You win!');
                             setCounter(counter + 1);
