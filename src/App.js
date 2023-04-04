@@ -34,7 +34,7 @@ function App() {
 
     return (<div className="App">
         <header className="App-header">
-            <h1 className="pb-2 text-2xl"> Simple Vim tutorial</h1>
+            <h1 className="pb-2 text-2xl"><span className="colorZero">Simple</span><span className="colorOne">Vim</span> <span className="colorTwo">tutorial</span></h1>
             <div className="pb-2 text-base">You have won <code>{counter}</code> times!</div>
             <div className="text-base border-2 border-blue-300 pt-4 pl-12 pr-12">
                 <p>
@@ -44,7 +44,7 @@ function App() {
                     Delete: x
                 </p>
             </div>
-            <div className="pt-4 pb-4 left-20 right-20 top-60 bottom-20 text-left">
+            <div className="pt-4 pb-4 left-20 right-20 top-60 bottom-20 text-left canvas">
                 <CodeMirror
                     options={{
                         theme: 'dracula',
